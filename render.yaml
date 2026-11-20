@@ -31,29 +31,29 @@ services:
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
 
-      # These automatically populate connection details 
+      # These automatically populate connection details
       # for the Render Postgres database defined below
       - key: DB_TYPE
         value: postgresdb
       - key: DB_POSTGRESDB_DATABASE
         fromDatabase:
-          name: n8n-db
+          name: n8n-postgres
           property: database
       - key: DB_POSTGRESDB_HOST
         fromDatabase:
-          name: n8n-db
+          name: n8n-postgres
           property: host
       - key: DB_POSTGRESDB_PASSWORD
         fromDatabase:
-          name: n8n-db
+          name: n8n-postgres
           property: password
       - key: DB_POSTGRESDB_USER
         fromDatabase:
-          name: n8n-db
+          name: n8n-postgres
           property: user
 
 databases:
-  - name: n8n-db
+  - name: n8n-postgres
     plan: free
     # The free instance type is limited to 1 GB of disk
     # space.
